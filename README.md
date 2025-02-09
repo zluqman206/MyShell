@@ -1,87 +1,79 @@
-Navigate to the project directory:
+MyShell.c - Simple Linux Shell Implementation
 
-bash
-Copy
-cd your-repo-name
-Compile the MyShell.c file:
-## Features
+Overview
 
-- Supports executing built-in shell commands and external programs.
-- Implements process management using `fork()` and `execvp()`.
-- Handles basic input and output redirection.
-- Supports command chaining using pipes (`|`).
-- Provides a basic interactive shell experience.
+MyShell.c is a simple Linux shell implemented in C that provides a basic command-line interface for executing user commands. This project is part of the TCSS 422 Operating Systems coursework.
 
-## Requirements
+Features
+
+Displays a MyShell> prompt for user input.
+
+Accepts and executes user commands using execvp().
+
+Implements process creation using fork() and manages execution with wait().
+
+Handles empty commands gracefully.
+
+Allows users to exit the shell using the exit command.
+
+Requirements
 
 To compile and run MyShell.c, you need:
 
-- GCC compiler (`gcc`)
-- A Unix-like operating system (Linux, macOS, or WSL on Windows)
+GCC compiler (version 9.4.0 or later)
 
-## Installation
+Ubuntu Linux environment
 
-1. Clone the project repository or copy `MyShell.c` to your working directory.
-2. Open a terminal and navigate to the directory containing `MyShell.c`.
-3. Compile the shell using:
-   ```bash
-   gcc -o myShell MyShell.c
-   ```
-4. Run the shell with:
-   ```bash
-   ./myShell
-   ```
+Installation
 
-## Usage
+Clone the project repository or copy MyShell.c to your working directory.
+
+Open a terminal and navigate to the directory containing MyShell.c.
+
+Compile the shell using:
+
+gcc -o myShell MyShell.c
+
+Run the shell with:
+
+./myShell
+
+Usage
 
 Once inside the shell, you can execute commands like:
 
-```bash
 ls -l
-```
-
-or use redirection and pipes:
-
-```bash
-ls -l | grep .c > output.txt
-```
 
 To exit the shell, type:
 
-```bash
 exit
-```
 
-## Built-in Commands
+Implementation Details
 
-- `cd <directory>`: Change the current directory.
-- `exit`: Terminate the shell.
+Uses fork() to create child processes for command execution.
 
-## Implementation Details
+Uses execvp() to replace the child process with the requested command.
 
-- Uses `fork()` to create child processes for command execution.
-- Uses `execvp()` to replace the child process with the requested command.
-- Implements simple input and output redirection using `dup2()`.
-- Supports piping using `pipe()` to link commands together.
+Ensures the parent process waits for the child to finish execution using wait().
 
-## Limitations
+Displays MyShell> prompt after each command execution.
 
-- Does not support advanced shell features like background execution (`&`).
-- Limited error handling for incorrect syntax.
-- No support for shell scripting.
+Limitations
 
-## Future Improvements
+No support for piping (|) or redirection (>, <).
 
-- Implement background process execution.
-- Improve error handling and command parsing.
-- Add support for shell scripting.
+Limited error handling for incorrect command syntax.
 
-## Authors
+Does not support changing directories (cd).
 
-Developed as part of the TCSS 462/562 Cloud Computing Term Project.
+Future Improvements
 
-## License
+Implement support for background process execution (&).
 
-This project is for educational purposes only.
+Improve error handling and provide better debugging messages.
 
+Add support for command history and tab completion.
 
+License
+
+This project is licensed under the MIT License.
