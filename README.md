@@ -1,9 +1,9 @@
-# MyShell.c - Custom Shell Implementation
+Navigate to the project directory:
 
-## Overview
-
-MyShell.c is a custom shell program implemented in C that provides a command-line interface for executing commands similar to traditional Unix/Linux shells. This project is part of the TCSS 462/562 Cloud Computing Term Project.
-
+bash
+Copy
+cd your-repo-name
+Compile the MyShell.c file:
 ## Features
 
 - Supports executing built-in shell commands and external programs.
